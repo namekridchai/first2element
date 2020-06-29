@@ -1,0 +1,22 @@
+n = int(input())
+l = {}
+for i in range(n):
+    x = input().split(" ")
+    second = x[1][:2]
+    if second not in l:
+        l[second] = [[x[1],x[0]]]
+    else:
+        l[second].append([x[1],x[0]])
+c = 0
+count = []
+for e in l:
+    for j in l[e]:
+        c-=1
+    count.append([c,e])
+    c = 0
+count.sort()
+second_from_list = count[0][1]
+print(second_from_list)
+print(len(l[second_from_list]))
+for e in l[second_from_list]:
+    print(" ".join(e))
